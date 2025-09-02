@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="pinterest.css">
+    <link rel="icon"  href="favii.png">
+    <title>Pinterest</title>
+</head>
+
+<body>
+
+    <nav>
+        <a class="logo" href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="active">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Create</a>
+        <input type="text" class="search" placeholder="Search">
+        <a href="#" class="icon"><i class="fas fa-bell"></i></a>
+        <a href="#" class="icon"><i class="fas fa-comment-dots"></i></a>
+        <a href="#"><img src="michalmrazik.jpg" alt=""></a>
+    </nav>
+
+    <div id="loader"></div>
+    <div id="container">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+
+    <script>
+        document.getElementById('loader').style.display = 'none';
+    const container = document.getElementById('container');
+    const cols = Array.from(container.getElementsByClassName('col'));
+
+    // 🔥 List your own image files here (put them inside "images" folder)
+    const localImages = [
+        "girl.jpg",
+        "girl2.jpg",
+        "girl3.jpg",
+        "girl4.jpg",
+        "girl5.jpg",
+        "girl6.jpg",
+        "girl7.jpg",
+        "girl8.jpg",
+        "girl9.jpg",
+        "girl10.jpg",
+        "girl11.jpeg",
+        "girl12.jpeg",
+        "girl13.jpeg",
+        "girl14.jpeg",
+        "girl15.jpeg",
+        "girl16.jpeg",
+        "girl17.jpeg",
+        "girl18.jpeg",
+        "girl19.jpeg",
+        "girl20.jpeg",
+        "girl21.jpeg",
+        "girl22.jpeg",
+        "girl23.jpeg",
+        "girl24.jpeg",
+        "girl25.jpeg",
+        "girl26.jpeg",
+        "girl27.jpeg",
+        "girl28.jpeg",
+        "girl29.jpeg",
+        "girl30.jpeg",
+        "girl31.jpeg",
+        "girl32.jpeg",
+        "girl33.jpeg",
+        "girl34.jpeg",
+        "girl36.jpeg",
+        "girl37.jpeg",
+        "girl38.jpeg",
+        "girl39.jpeg",
+        "girl40.jpeg",
+
+        
+    ];
+
+    // Create card function
+    const createCard = (image, col) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = "My Gallery Image";
+        img.style.width = "100%";
+        card.appendChild(img);
+        col.appendChild(card);
+    };
+
+    // Load all local images
+    localImages.forEach((image, index) => {
+        createCard(image, cols[index % cols.length]);
+    });
+</script>
+</body>
+
+</html>
